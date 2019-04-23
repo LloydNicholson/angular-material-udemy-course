@@ -1,0 +1,41 @@
+<!--<ol>-->
+<!--    <li>Add an email and password field (with Material Components of course)</li>-->
+<!--    <li>Add validation (email => required and email, password => required)</li>-->
+<!--    <li>Show errors and hints</li>-->
+<!--    <li>Make loginForm submittable and disable button if invalid</li>-->
+<!--    <li>BONUS: Do all of that by using the reactive approach!</li>-->
+<!--</ol>-->
+
+<section class="login-form">
+    <form
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="20px"
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <input
+                matInput
+                type="email"
+                placeholder="email"
+                formControlName="email">
+            <mat-hint
+                *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">Enter a valid
+                email address
+            </mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+            <input
+                matInput
+                type="password"
+                placeholder="password"
+                formControlName="password">
+            <mat-error *ngIf="!loginForm.get('password').hasError('minLength')">Your password must be at
+                least 6 characters
+                long!
+            </mat-error>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Login
+        </button>
+    </form>
+</section>
