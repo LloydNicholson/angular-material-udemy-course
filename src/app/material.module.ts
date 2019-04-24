@@ -24,7 +24,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 // @ts-ignore
 @NgModule({
   providers: [
-    { provide: MAT_DATE_LOCALE, useValue: 'en-gb' },
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
   ],
   imports: [
     MatButtonModule,
